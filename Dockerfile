@@ -10,4 +10,4 @@ RUN mvn -f /home/app/pom.xml clean package
 #
 FROM openjdk:11-jre-slim
 COPY --from=build /home/app/target/* /usr/local/lib/
-ENTRYPOINT ["java","-jar","/usr/local/lib/mdb-spring-boot.jar"]
+ENTRYPOINT ["java","-jar","/usr/local/lib/*.jar"]
