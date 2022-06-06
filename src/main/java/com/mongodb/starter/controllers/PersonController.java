@@ -26,6 +26,7 @@ public class PersonController {
     @PostMapping("person")
     @ResponseStatus(HttpStatus.CREATED)
     public Person postPerson(@RequestBody Person person) {
+        System.out.println("post person");
         return personRepository.save(person);
     }
 
@@ -37,6 +38,7 @@ public class PersonController {
 
     @GetMapping("persons")
     public List<Person> getPersons() {
+        System.out.println("get persons");
         return personRepository.findAll();
     }
 
