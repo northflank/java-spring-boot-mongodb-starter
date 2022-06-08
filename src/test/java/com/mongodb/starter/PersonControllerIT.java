@@ -244,7 +244,7 @@ class PersonControllerIT {
     private void createPersonCollectionIfNotPresent(MongoClient mongoClient) {
         // This is required because it is not possible to create a new collection within a multi-documents transaction.
         // Some tests start by inserting 2 documents with a transaction.
-        MongoDatabase db = mongoClient.getDatabase("test");
+        MongoDatabase db = mongoClient.getDatabase(System.getenv("DATABASE"));
         if (!db.listCollectionNames().into(new ArrayList<>()).contains("persons"))
             db.createCollection("persons");
     }
